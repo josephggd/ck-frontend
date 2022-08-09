@@ -12,3 +12,15 @@ export async function postOrder( order : Order ) {
     return "BAD REQUEST";
   }
 }
+export async function getActiveOrder( id: string ) {
+  try {
+    const response = await axios.get("URL/"+id);
+    if (response.status===200){
+      return response.data;
+    } else {
+      throw new Error("BAD REQUEST");
+    }
+  } catch {
+    return "BAD REQUEST";
+  }
+}

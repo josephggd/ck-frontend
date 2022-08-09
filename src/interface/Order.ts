@@ -1,7 +1,9 @@
 export interface Order {
-  number : string,
-  menuItem : string,
-  prepared : boolean,
-  paid : boolean,
-  delivered : boolean
+  number : string;
+  menuItem : string;
+  currentState : string;
+  receivedDate : string;
+  preparedDate : string;
+  paidDate : string;
+  deliveredDate : string;
 }
