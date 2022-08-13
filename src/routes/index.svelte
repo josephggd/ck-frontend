@@ -1,6 +1,14 @@
-<svelte:head>
-    <title>SVELTE</title>
-</svelte:head>
+<script>
+    import MainWindow from "../component/MainWindow.svelte";
+</script>
 
-<h1>Hello and welcome to my site!</h1>
-<a href="/home">About my site</a>
+<svelte:head>
+    <title>Cafe Kafka</title>
+</svelte:head>
+<svelte:component this={MainWindow}></svelte:component>
+<style>
+    :global(body) {
+        background-color: #f2eee2;
+        transition: background-color 3s
+    }
+</style>
