@@ -11,7 +11,7 @@
   import type {OrderHistory} from "../api/OrderHistory";
   import {getOrderHistoryAggregate} from "../api/Api";
 
-  let orderState : OrderNav = OrderNav.BROWSING;
+  let orderNav : OrderNav = OrderNav.BROWSING;
   let blankOrder:OrderHistory = {
     number : null,
     menuItem : null,
@@ -39,20 +39,20 @@
 </script>
 
 <Cell span={9}>
-    <Card style="background-color: #801f00; opacity: .9;">
-        {#if orderState===OrderNav.LOADING}
+    <Card style="height: 40rem; background-color: #801f00; opacity: .9;">
+        {#if orderNav===OrderNav.LOADING}
         <div style="display: flex; align-items: center; justify-content: center; margin: 5rem auto;">
             <CircularProgress style="height: 20rem; width: 20rem;" intermediate></CircularProgress>
         </div>
-        {:else if orderState===OrderNav.BROWSING}
+        {:else if orderNav===OrderNav.BROWSING}
             <div style="display: flex; align-items: center; justify-content: center; margin: 15rem auto;">
                 <Button style="width: 12rem;"
-                        on:click={()=>orderState=OrderNav.ORDERING}
+                        on:click={()=>orderNav=OrderNav.ORDERING}
                         variant="unelevated">
                     <Label>May we take your order?</Label>
                 </Button>
             </div>
-        {:else if orderState===OrderNav.ORDERING}
+        {:else if orderNav===OrderNav.ORDERING}
             <div style="margin: 4rem; display: flex; flex-direction: row; justify-content: space-evenly; ">
                 <div class="food-col">
                     <img
@@ -66,7 +66,7 @@
                             createOrder(MenuItem.PIZZA).then(()=>{
                                 updateHistory();
                             }).then(()=>{
-                                orderState = OrderNav.PAYING;
+                                orderNav = OrderNav.PAYING;
                             });
                         }}
                         variant="unelevated">
@@ -85,7 +85,7 @@
                             createOrder(MenuItem.HAMBURGER).then(()=>{
                                 updateHistory();
                             }).then(()=>{
-                                orderState = OrderNav.PAYING;
+                                orderNav = OrderNav.PAYING;
                             });
                         }}
                             variant="unelevated">
@@ -93,43 +93,44 @@
                     </Button>
                 </div>
             </div>
-        {:else if orderState===OrderNav.PAYING}
+        {:else if orderNav===OrderNav.PAYING}
             <div style="display: flex; align-items: center; justify-content: center; margin: 15rem auto;">
                 <Button style="width: 12rem;"
                         on:click={()=>{
                             payOrder().then(()=>{
                                 updateHistory();
                             }).then(()=>{
-                                orderState = OrderNav.DELIVERING;
+                                orderNav = OrderNav.DELIVERING;
                             });
                         }}
                         variant="unelevated">
                     <Label>PAY FOR ORDER?</Label>
                 </Button>
             </div>
-        {:else if orderState===OrderNav.DELIVERING}
+        {:else if orderNav===OrderNav.DELIVERING}
             <div style="display: flex; align-items: center; justify-content: center; margin: 15rem auto;">
                 <Button style="width: 12rem;"
                         on:click={()=>{
                             deliverOrder().then(()=>{
                                 updateHistory();
                             }).then(()=>{
-                                orderState = OrderNav.DELIVERED;
+                                orderNav = OrderNav.DELIVERED;
                             });
                         }}
                         variant="unelevated">
                     <Label>DELIVER THE ORDER?</Label>
                 </Button>
             </div>
-        {:else if orderState===OrderNav.DELIVERED}
+        {:else if orderNav===OrderNav.DELIVERED}
             <div style="display: flex; align-items: center; justify-content: center; margin: 15rem auto;">
-                <h2>THANK YOU FOR ORDERING!</h2>
+                <h2>THANK YOU FOR ORDERING!</h2><br>
+                <h4 class="hoverLink" on:click={()=>{order=blankOrder;orderNav=OrderNav.BROWSING;}}>Order again?</h4>
             </div>
         {/if}
     </Card>
 </Cell>
 <Cell span={3}>
-    <Card style="height:30rem; background-color: #801f00; opacity: .9;">
+    <Card style="height: 40rem; background-color: #801f00; opacity: .9;">
         <div class="box-col">
             <h1 class="centered-header">Order Status:</h1>
             <div class="checkpoint-w-text">
@@ -208,5 +209,12 @@
     }
     .centered-header {
         text-align: center;
+    }
+    h3:hover {
+        font-weight: 100;
+    }
+    h4:hover {
+        font-weight: 300;
+        text-decoration: underline;
     }
 </style>
