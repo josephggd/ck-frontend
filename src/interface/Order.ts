@@ -2,5 +2,7 @@ export interface Order {
   number : string;
   menuItem : string;
   currentState : string;
-  lastUpdated : string;
+  orderedDate : string;
+  paidDate : string;
+  deliveredDate : string;
 }
