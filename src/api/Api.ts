@@ -1,6 +1,8 @@
 import axios from "axios";
-import {BE} from "../CommonStrings";
 import type {OrderHistory} from "./OrderHistory";
+
+const BE:string = import.meta.env.VITE_BACKEND;
+
 export async function createOrder( menuItem : string ) {
   const response = await axios.post(BE+menuItem );
   if (response.status===200){

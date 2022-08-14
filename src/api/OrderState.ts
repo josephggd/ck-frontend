@@ -1,7 +1,7 @@
 export enum OrderState {
   BROWSING = "BROWSING",
   ORDERING = "ORDERING",
-  ORDERED = "ORDERED",
+  LOADING = "LOADING",
   RECEIVED = "RECEIVED",
   PREPARED = "PREPARED",
   PAID = "PAID",

@@ -1,15 +1,20 @@
 <script>
     export const DRAWIO = "LINK";
-    export const GITHUB = "LINK";
-    export const SWAGGER = "LINK";
+    export const GITHUB = "https://github.com/josephggd/cafe-kafka";
+    export const SWAGGER = "/api/swagger-ui/index.html";
 </script>
 
-<div class="fadeIn explanation">
-    <h3>Cafe Kafka is a simulated restaurant ordering experience
-        using Springboot, SvelteKit, and Kafka.</h3><br>
-    <p>Orders made from the frontend (left) are used to send Kafka
+<div class="fadeIn explanation center-text">
+    <h3>
+        Cafe Kafka simulates a restaurant ordering experience
+        using Springboot, SvelteKit, and Kafka.
+    </h3><br>
+    <p>
+        Orders made from the frontend (left) are used to send Kafka
         messages. The messages are then aggregated to show an
-        up-to-date status (right).</p>
+        up-to-date status (right). No payment information and no
+        "real-life" services are being processed.
+    </p>
 </div>
 
 <div class="fadeIn docs">
@@ -24,8 +29,11 @@
     </a>
 </div>
 <style>
+    .center-text {
+        text-align: center;
+    }
     .fadeIn {
-        animation: fadeInUponHover 3s;
+        animation: fadeUpAndIn 2s;
     }
     .docs {
         display: flex;
@@ -43,7 +51,7 @@
         padding: 1rem;
         align-items: center;
     }
-    @keyframes fadeInUponHover {
+    @keyframes fadeUpAndIn {
         from { opacity: 0; top:20px; }
         to { opacity: 100; top:0; }
     }

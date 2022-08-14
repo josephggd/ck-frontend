@@ -1,6 +1,7 @@
 <script>
-    import Fab, { Icon } from '@smui/fab';
+    import Fab, {Icon} from '@smui/fab';
     import DocsButtons from "./DocsButtons.svelte";
+
     let show = false;
 </script>
 
