@@ -11,4 +11,8 @@
         background-color: #f2eee2;
         transition: background-color 3s
     }
+    @font-face {
+        font-family: 'Chivo';
+        font-style: normal;
+    }
 </style>

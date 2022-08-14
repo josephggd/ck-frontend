@@ -1,5 +1,22 @@
-export const BE = "http://localhost:8080/orders/";
+import {OrderState} from "./api/OrderState";
 
-export const orderedList = ["ORDERED", "PAID", "DELIVERED"];
-export const paidList = ["DELIVERED", "PAID"];
-export const deliveredList = ["DELIVERED"];
+export const BE = "http://localhost:8080/api/orders/";
+
+export const receivedList = [
+  OrderState.RECEIVED,
+  OrderState.PREPARED,
+  OrderState.PAID,
+  OrderState.DELIVERED
+];
+export const preparedList = [
+  OrderState.PREPARED,
+  OrderState.PAID,
+  OrderState.DELIVERED
+];
+export const paidList = [
+  OrderState.PAID,
+  OrderState.DELIVERED
+];
+export const deliveredList = [
+  OrderState.DELIVERED
+];
