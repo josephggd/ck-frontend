@@ -1,7 +1,5 @@
 <script>
-    export const DRAWIO = "LINK";
-    export const GITHUB = "https://github.com/josephggd/cafe-kafka";
-    export const SWAGGER = "/api/swagger-ui/index.html";
+    import {DRAWIO, GITHUB, SWAGGER} from "../CommonStrings.ts";
 </script>
 
 <div class="fadeIn explanation center-text">

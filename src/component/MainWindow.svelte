@@ -21,7 +21,6 @@
 
 <style>
     .header {
-        color: lightcoral;
         background-color: transparent;
         height: 120px;
         font-size: 5rem;
